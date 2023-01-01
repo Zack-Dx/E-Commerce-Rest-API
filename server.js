@@ -1,10 +1,10 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
-const { authController } = require("./routes/auth.js");
-const { loginController } = require("./routes/auth.js");
+const { authController, loginController } = require("./routes/auth.js");
 const { updateUser } = require("./routes/users.js");
 const { addProduct, getProduct } = require("./routes/product.js");
+const { cartController } = require("./routes/cart.js");
 const app = express();
 const port = 4500;
 
@@ -28,6 +28,7 @@ loginController(router);
 updateUser(router);
 addProduct(router);
 getProduct(router);
+cartController(router);
 app.use(router);
 app.listen(port, () => {
   console.log(`Server at port ${port}`);
